@@ -9,7 +9,6 @@ import { IButtonStyles } from 'office-ui-fabric-react/lib/Button';
 export const link = (active, disabled) => css`
   display: block;
   text-decoration: none;
-  color: #4f4f4f;
   position: relative;
 
   ${disabled && `pointer-events: none;`}
@@ -24,9 +23,14 @@ export const link = (active, disabled) => css`
     }
 
     &:hover {
-      background-color: ${active ? NeutralColors.gray40 : NeutralColors.gray30};
+      background-color: ${NeutralColors.gray50};
+      .ms-Button-icon {
+        color: #4f4f4f;
+      }
+      .ms-Button-label {
+        color: #4f4f4f;
+      }
     }
-
     &:focus {
       outline: none;
       .ms-Fabric--isFocusVisible &::after {
@@ -40,11 +44,8 @@ export const link = (active, disabled) => css`
     }
 
     ${active &&
-      `background-color: ${NeutralColors.gray40};
-
-      &::after {
-        border-left: 3px solid ${CommunicationColors.primary};
-      }`}
+      `background-color: ${CommunicationColors.primary};
+    `}
   `}
 `;
 
@@ -57,7 +58,7 @@ export const outer = css`
 export const commandBarButton = active =>
   ({
     root: {
-      color: active ? '#000' : '#4f4f4f',
+      color: active ? NeutralColors.white : '#4f4f4f',
       height: '36px',
       width: '220px',
       fontSize: `${FontSizes.size14}`,
@@ -70,14 +71,14 @@ export const commandBarButton = active =>
       backgroundColor: 'transparent',
     },
     icon: {
-      color: active ? '#000' : '#4f4f4f',
+      color: active ? NeutralColors.white : '#4f4f4f',
       padding: '0 16px',
       marginLeft: '0px',
       boxSizing: 'border-box',
       fontSize: `${FontSizes.size16}`,
+      backgroundColor: 'transparent',
     },
     textContainer: {
       textAlign: 'left',
-      zIndex: 1,
     },
   } as IButtonStyles);

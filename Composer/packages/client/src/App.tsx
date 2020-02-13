@@ -128,7 +128,7 @@ export const App: React.FC = () => {
               iconProps={{
                 iconName: 'GlobalNavButton',
               }}
-              css={globalNav}
+              css={globalNav(sideBarExpand)}
               onClick={() => {
                 setSideBarExpand(!sideBarExpand);
               }}

@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 
 import { css } from '@emotion/core';
-import { NeutralColors, FontSizes, SharedColors } from '@uifabric/fluent-theme';
+import { NeutralColors, FontSizes, SharedColors, CommunicationColors } from '@uifabric/fluent-theme';
 import { FontWeights } from 'office-ui-fabric-react/lib/Styling';
 
 export const main = css`
@@ -34,17 +34,19 @@ export const divider = isExpand => css`
   margin: 0 auto;
 `;
 
-export const globalNav = css`
+export const globalNav = isExpand => css`
   height: 44px;
   width: 48px;
   text-align: center;
   line-height: 44px;
   cursor: pointer;
   font-size: ${FontSizes.size16};
-  color: #106ebe;
   &:hover {
-    background: ${NeutralColors.gray40};
+    background-color: ${NeutralColors.gray50};
+    color: ${CommunicationColors.shade10};
   }
+  background-color: ${isExpand ? CommunicationColors.primary : 'transparent'};
+  color: ${isExpand ? NeutralColors.white : CommunicationColors.shade10};
 `;
 
 export const content = css`
